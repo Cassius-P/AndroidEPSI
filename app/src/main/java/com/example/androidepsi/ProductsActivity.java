@@ -36,6 +36,7 @@ public class ProductsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
 
+
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             getSupportActionBar().setTitle(bundle.getString("rayon"));
