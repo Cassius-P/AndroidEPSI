@@ -43,6 +43,7 @@ public class ProductsActivity extends AppCompatActivity {
         }else{
             getSupportActionBar().setTitle("Erreur");
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         listView = findViewById(R.id.listProducts);
         getProducts(bundle.getString("products_url"));

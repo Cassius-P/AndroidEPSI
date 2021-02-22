@@ -16,15 +16,13 @@ public class StudentActivity extends AppCompatActivity {
         }else{
             getSupportActionBar().setTitle("Erreur");
         }
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_student);
-
 
         nom = findViewById(R.id.nom);
         prenom = findViewById(R.id.prenom);
         email = findViewById(R.id.email);
         grp = findViewById(R.id.groupe);
-
 
         if(bundle!=null){
             nom.setText(bundle.getString("nom"));
@@ -32,6 +30,5 @@ public class StudentActivity extends AppCompatActivity {
             email.setText(bundle.getString("email"));
             grp.setText(bundle.getString("groupe"));
         }
-
     }
 }

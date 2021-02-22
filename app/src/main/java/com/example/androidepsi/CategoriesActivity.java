@@ -35,6 +35,7 @@ public class CategoriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         listView = findViewById(R.id.listCateg);
         getCategories();
