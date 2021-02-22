@@ -18,6 +18,8 @@ public class ProductActivity extends AppCompatActivity {
         if(bundle != null){
             getSupportActionBar().setTitle(bundle.getString("name"));
         }
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_product);
 
         desc = findViewById(R.id.desc);

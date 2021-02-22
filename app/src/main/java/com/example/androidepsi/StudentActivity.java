@@ -16,7 +16,7 @@ public class StudentActivity extends AppCompatActivity {
         }else{
             getSupportActionBar().setTitle("Erreur");
         }
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_student);
 
 
