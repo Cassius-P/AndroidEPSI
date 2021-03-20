@@ -8,19 +8,28 @@
 
     <Button
         android:id="@+id/zone1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="250dp"
+        app:icon="@drawable/ic_person_24p"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/purple_700"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:text="Zone 1 " />
-
     <Button
         android:id="@+id/zone2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/zone1"
-        android:text="Zone 2" />
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true"
+        app:icon="@drawable/ic_outline_fastfood_24"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/purple_700"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:text="Zone 2 " />
+
+
 
 </RelativeLayout>

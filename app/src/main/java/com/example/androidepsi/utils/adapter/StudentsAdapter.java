@@ -18,9 +18,12 @@ public class StudentsAdapter extends ResourceCursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         TextView name = (TextView) view.findViewById(R.id.idStudent);
+        TextView nb = (TextView) view.findViewById(R.id.nbStudent);
 
         String nom = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntry.COLUMN_NAME_NOM));
         String prenom = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntry.COLUMN_NAME_PRENOM));
-        name.setText(nom +" "+ prenom);
+
+        name.setText(nom +" "+ prenom );
+        nb.setText(String.valueOf(cursor.getPosition()+1));
     }
 }
