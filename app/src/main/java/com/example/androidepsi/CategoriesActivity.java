@@ -84,7 +84,7 @@ public class CategoriesActivity extends AppCompatActivity {
 
             ListAdapter adapter = new CategoriesAdapter(this, items);
             listView.setAdapter(adapter);
-            listView.setDividerHeight(20);
+            listView.setDividerHeight(0);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

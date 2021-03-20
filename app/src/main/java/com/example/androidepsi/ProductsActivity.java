@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Explode;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
@@ -36,6 +37,7 @@ public class ProductsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
+        getWindow().setEnterTransition(new Explode());
 
 
         Bundle bundle = getIntent().getExtras();
@@ -89,7 +91,7 @@ public class ProductsActivity extends AppCompatActivity {
 
             ListAdapter adapter = new ProductsAdapter(this, items);
             listView.setAdapter(adapter);
-            listView.setDividerHeight(20);
+            listView.setDividerHeight(0);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -104,7 +106,8 @@ public class ProductsActivity extends AppCompatActivity {
                     bundle.putString("pic", items.get(position).getPicture_url());
 
                     intent.putExtras(bundle);
-                    startActivity(intent);
+                    startActivity(intent,
+                            ActivityOptions.makeSceneTransitionAnimation(ProductsActivity.this).toBundle());
                 }
             });
         }catch (JSONException e){
