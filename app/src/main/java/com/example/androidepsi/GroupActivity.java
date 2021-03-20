@@ -1,5 +1,6 @@
 package com.example.androidepsi;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,7 +11,9 @@ import com.example.androidepsi.utils.FeedReaderContract;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.transition.Explode;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -23,6 +26,7 @@ public class GroupActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Infos");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_group);
+        getWindow().setEnterTransition(new Explode());
 
         SQLiteDatabase myDB = openOrCreateDatabase("db",MODE_NO_LOCALIZED_COLLATORS,null);
         //Cursor resultSet = myDB.rawQuery("Select nom from students",null);
@@ -35,6 +39,7 @@ public class GroupActivity extends AppCompatActivity {
 
         students = findViewById(R.id.listStudent);
         students.setAdapter(adapter);
+        students.setDividerHeight(0);
 
         students.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,9 +55,9 @@ public class GroupActivity extends AppCompatActivity {
 
                 intent.putExtras(bundle);
 
-                startActivity(intent);
+                startActivity(intent,
+                        ActivityOptions.makeSceneTransitionAnimation(GroupActivity.this).toBundle());
 
-                //Toast.makeText(GroupActivity.this, resultSet2.getString(resultSet2.getColumnIndex(FeedReaderContract.FeedEntry.COLUMN_NAME_EMAIL)), Toast.LENGTH_LONG).show();
             }
         });
     }
