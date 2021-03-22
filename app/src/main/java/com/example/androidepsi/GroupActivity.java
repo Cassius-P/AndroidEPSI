@@ -29,7 +29,6 @@ public class GroupActivity extends AppCompatActivity {
         getWindow().setEnterTransition(new Explode());
 
         SQLiteDatabase myDB = openOrCreateDatabase("db",MODE_NO_LOCALIZED_COLLATORS,null);
-        //Cursor resultSet = myDB.rawQuery("Select nom from students",null);
 
         Cursor resultSet2 = myDB.rawQuery("Select * from students",null);
 

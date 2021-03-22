@@ -1,12 +1,26 @@
 package com.example.androidepsi.utils.entities;
 
+import java.io.UnsupportedEncodingException;
+
 public class Product {
 
     private String name, description, picture_url;
 
     public Product(String nom, String description, String image){
-        this.name = nom;
-        this.description= description;
+
+        String accentName = nom;
+        String accentDesc = description;
+        try {
+            byte[] nameBytes = nom.getBytes("ISO-8859-1");
+            byte[] descBytes = description.getBytes("ISO-8859-1");
+            accentName = new String(nameBytes);
+            accentDesc = new String(descBytes);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        this.name = accentName;
+        this.description= accentDesc;
         this.picture_url = image;
     }
 
