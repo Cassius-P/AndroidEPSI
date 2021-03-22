@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -45,17 +46,13 @@ public class CategoriesActivity extends AppCompatActivity {
     private void getCategories(){
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://djemam.com/epsi/categories";
+        String url ="http://djemam.com/epsi/categories.json";
 
-        // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
                         createList(response);
-
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -63,8 +60,6 @@ public class CategoriesActivity extends AppCompatActivity {
                 res.setText("That didn't work!");
             }
         });
-
-        // Add the request to the RequestQueue.
         queue.add(stringRequest);
 
     }
